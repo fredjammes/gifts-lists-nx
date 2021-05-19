@@ -29,7 +29,19 @@
     "api": {
       "tags": []
     },
-    "api-interfaces": {
+    "domain": {
+      "tags": []
+    },
+    "api-use-cases": {
+      "tags": []
+    },
+    "api-repositories": {
+      "tags": []
+    },
+    "front-use-cases": {
+      "tags": []
+    },
+    "front-repositories": {
       "tags": []
     }
   }

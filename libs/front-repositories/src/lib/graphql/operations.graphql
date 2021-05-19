@@ -1,0 +1,18 @@
+query giftLists {
+  giftLists {
+    name
+    description
+    gifts {
+      name
+      description
+    }
+  }
+}
+
+
+mutation addGiftList($giftListInput: AddGiftListInput) {
+  addGiftList(giftListInput: $giftListInput) {
+    name
+    description
+  }
+}

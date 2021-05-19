@@ -1,0 +1,21 @@
+type Gift {
+  id: Int!
+  name: String!
+  description: String
+  url: String
+}
+
+input AddGiftInput {
+  giftListId: Int!
+  name: String!
+  description: String
+  url: String
+}
+
+type GiftQuery {
+  get: Gift
+}
+
+type GiftMutation {
+  addGiftToList(gift: AddGiftInput): Gift
+}

@@ -10,12 +10,20 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2017", "dom", "esnext.asynciterable"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@gifts-lists-nx/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@gifts-lists-nx/domain": ["libs/domain/src/index.ts"],
+      "@gifts-lists-nx/api-use-cases": ["libs/api-use-cases/src/index.ts"],
+      "@gifts-lists-nx/api-repositories": [
+        "libs/api-repositories/src/index.ts"
+      ],
+      "@gifts-lists-nx/front-use-cases": ["libs/front-use-cases/src/index.ts"],
+      "@gifts-lists-nx/front-repositories": [
+        "libs/front-repositories/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

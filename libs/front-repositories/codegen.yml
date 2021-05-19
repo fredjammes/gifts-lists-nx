@@ -1,0 +1,9 @@
+overwrite: true
+schema: http://localhost:3333/graphql
+generates:
+  libs/front-repositories/src/lib/generated/generated.ts:
+    documents: "libs/front-repositories/src/lib/graphql/**/*.graphql"
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-apollo-angular"

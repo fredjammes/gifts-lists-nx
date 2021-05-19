@@ -1,0 +1,19 @@
+type GiftList {
+  id: Int!
+  name: String
+  description: String
+  gifts: [Gift]!
+}
+
+input AddGiftListInput {
+  name: String
+  description: String
+}
+
+type GiftListQuery {
+  getAll: [GiftList]
+}
+
+type GiftListMutation {
+  addGiftList(giftListInput: AddGiftListInput): [GiftList]
+}

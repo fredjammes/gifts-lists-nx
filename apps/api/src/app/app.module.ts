@@ -1,11 +1,16 @@
 import { Module } from '@nestjs/common';
-
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { GraphQLModule } from '@nestjs/graphql';
+import { GiftListResolver } from './gift-list/gift-list.resolver';
+import { ApiUseCasesModule } from '@gifts-lists-nx/api-use-cases';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    GraphQLModule.forRoot({
+      typePaths: ['./**/*.graphql'],
+    }),
+    ApiUseCasesModule
+  ],
+  controllers: [],
+  providers: [GiftListResolver]
 })
 export class AppModule {}

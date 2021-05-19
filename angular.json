@@ -203,15 +203,125 @@
         }
       }
     },
-    "api-interfaces": {
-      "root": "libs/api-interfaces",
-      "sourceRoot": "libs/api-interfaces/src",
+    "domain": {
+      "root": "libs/domain",
+      "sourceRoot": "libs/domain/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": ["libs/domain/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/domain"],
+          "options": {
+            "jestConfig": "libs/domain/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-use-cases": {
+      "root": "libs/api-use-cases",
+      "sourceRoot": "libs/api-use-cases/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-use-cases/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-use-cases"],
+          "options": {
+            "jestConfig": "libs/api-use-cases/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "api-repositories": {
+      "root": "libs/api-repositories",
+      "sourceRoot": "libs/api-repositories/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api-repositories/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/api-repositories"],
+          "options": {
+            "jestConfig": "libs/api-repositories/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "front-use-cases": {
+      "projectType": "library",
+      "root": "libs/front-use-cases",
+      "sourceRoot": "libs/front-use-cases/src",
+      "prefix": "gifts-lists-nx",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/front-use-cases"],
+          "options": {
+            "jestConfig": "libs/front-use-cases/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/front-use-cases/src/**/*.ts",
+              "libs/front-use-cases/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "front-repositories": {
+      "projectType": "library",
+      "root": "libs/front-repositories",
+      "sourceRoot": "libs/front-repositories/src",
+      "prefix": "gifts-lists-nx",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/front-repositories"],
+          "options": {
+            "jestConfig": "libs/front-repositories/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/front-repositories/src/**/*.ts",
+              "libs/front-repositories/src/**/*.html"
+            ]
+          }
+        },
+        "generate": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "npx graphql-codegen --config libs/front-repositories/codegen.yml"
+              }
+            ]
           }
         }
       }
